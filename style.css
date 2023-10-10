@@ -616,12 +616,12 @@ button:hover{
 #footer{
     position: relative;
     width: 100%;
-    height: 80px;
+    height: 8vh;
     
 }
 
 #footer .footercontainer{
-    height: 80px;
+    height: 8vh;
     width: 100%;
     display: flex;
     justify-content: center;
