@@ -627,6 +627,7 @@ button:hover{
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: whitesmoke;
 }
 #footer .footercontainer h1{
     font-size: 2vw;
