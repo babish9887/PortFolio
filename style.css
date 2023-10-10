@@ -619,22 +619,6 @@ button:hover{
     
     
 }
-#footert.foot{
-    position: relative;
-    width: 100%;
-    height: 10px;
-    background-color: #7f00ff;
-}
-.foot h1{
-    display: flex;
-    padding: 20px 0 20px 0;
-    color: black;
-    justify-content: center;
-    font-family: Century;
-    font-size: 3rem;
-    font-weight: bolder;
-    transition: .5s;
-}
 
 #footer .footercontainer{
     height: 8vh;
@@ -643,9 +627,8 @@ button:hover{
 }
 #footer .footercontainer h1{
     padding-top: 20px;
+    font-size: 1rem;
 }
-
-
 
 .portfoliocontainer{
     overflow: hidden;
