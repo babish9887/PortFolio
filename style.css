@@ -721,6 +721,15 @@ button:hover{
     /* justify-content: space-evenly; */
  }
 
+ .color{
+    height: 800px;
+    width: 800px;
+    background-image: radial-gradient(closest-side, rgba(243, 165, 175,0.70), transparent);
+    position: absolute;
+    z-index: -999;
+}
+
+
  
 @media (max-width: 992px){
     header, navbar{
@@ -757,6 +766,9 @@ button:hover{
 
 
 @media (max-width: 732px){
+    .color{
+       display: none;
+    }
 
     #home{
         height: 110vh;
@@ -939,3 +951,5 @@ button:hover{
 }
 
 }
+
+

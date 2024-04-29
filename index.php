@@ -45,6 +45,10 @@
         </navbar>
     </header>
     <section id="home">
+
+        <div class="color"></div>
+        <div class="color2"></div>
+
         <div class="container">
             <div class="col1">
                 <span class="topline">Hi,</span>
@@ -58,7 +62,7 @@
             </div>
             <div class="col2">
                 <div class="imgbox">
-                    <img src="images/pp.jpg" alt="">
+                    <img src="images/pp-nonbg.png" alt="">
                     
                 </div>
             </div>
@@ -100,19 +104,18 @@
                         <div class="imagebox">  <img src="images/graphicsdesign.jpg" alt=""></div>
                   <div class="text">
                     <h2>Graphics Design</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam sit quo natus qui deleniti! Consequuntur?</p>
+                    <p> I offer creative solutions that bring your brand to life with captivating visuals and compelling design elements.</p>
                     <button>Read More</button>
                         </div>
                     
                     </div>
                 </div>
-
                 <div class="cards">
                     <div class="cardscontent">
                         <div class="imagebox"><img src="images/website-design-2.jpg" alt=""></div>
                     <div class="text">
                     <h2>Website build</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam sit quo natus qui deleniti! Consequuntur?</p>
+                    <p>I specialize in creating user-friendly websites that perfectly represent your brand.</p>
                     <button>Read More</button>
                         </div>
                     
@@ -124,7 +127,7 @@
                     <div class="imagebox"><img src="images/app development.jpg" alt=""></div>
                     <div class="text">
                         <h2>App Build</h2>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam sit quo natus qui deleniti! Consequuntur?</p>
+                        <p>Develop custom mobile applications tailored to your specific needs and requirements.</p>
                     <button>Read More</button>
                         
                     </div>
@@ -181,17 +184,17 @@
                     </ul>
                 </div>
               </div>
-                 <div class="submitform">
+                 <form class="submitform" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <h1>Contact Me</h1>
                     <div class="inputbox">
-                        <input type="'text" style="color:whitesmoke;" placeholder="Full name"  required><br>
-                         <input type="email" style="color:whitesmoke;" placeholder="Email" required>
-                         <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Enter your Message"></textarea>
+                        <input type="'text" style="color:whitesmoke;" placeholder="Full name" name="name" required><br>
+                         <input type="email" style="color:whitesmoke;" placeholder="Email" name="email" required>
+                         <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Enter your Message" ></textarea>
                          <br>
-                         <br> <button>Submit</button>                
+                         <br> <button type="submit" >Submit</button>                
 
                     </div>
-                 </div>
+                 </form>
             </div>
         </div>   
 </section>
@@ -207,5 +210,32 @@
     loop: true, typeSpeed: 100,backSpeed: 80, backDelay: 1500 })
 </script>
 <script src="script.js"></script>
+<?php
+
+if(isset($_POST['name']) && isset($_POST['email'])){
+      try{
+            
+            $message=$_POST['msg'];
+            $name=$_POST['name'];
+            $email=$_POST['email'];
+            
+            echo $name,$email, $message;
+            include('db.php');
+            $qry=$conn->prepare("INSERT INTO messages (name, email, message) VALUES(:value1,:value2,:value3)");
+            $qry->bindParam(':value1',$name);
+            $qry->bindParam(':value2',$email);
+            $qry->bindParam(':value3',$message);
+            $qry->execute();
+            echo "<script>alert('Message sent')</script>";
+            sleep(3);
+            exit;
+            
+      } catch(PDOException $e){
+            echo $e;
+            echo "<script>alert('Something went Wrong!')</script>";
+      }
+      
+}
+?>
 </body>
 </html>
