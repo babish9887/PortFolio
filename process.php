@@ -15,7 +15,6 @@ if(isset($_POST['name']) && isset($_POST['email'])){
             $qry->bindParam(':value3',$message);
             $qry->execute();
             echo "<script>alert('Message sent')</script>";
-            sleep(4);
             header('Location:index.html');
             exit;
             
